@@ -60,17 +60,7 @@ body {
 i {
     cursor: pointer;
 }
-@media (max-width: 1000px) {
-  .shop {
-    grid-template-columns: repeat(2, 223px);
-  }
-}
 
-@media (max-width: 500px) {
-  .shop {
-    grid-template-columns: repeat(1, 223px);
-  }
-}
 /*header*/
 .logo {
     scale: 0.1;
@@ -136,7 +126,17 @@ i {
     gap: 30px;
     justify-content: center;
 }
-
+@media (max-width: 1000px) {
+    .shop {
+      grid-template-columns: repeat(2, 223px);
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .shop {
+      grid-template-columns: repeat(1, 223px);
+    }
+  }
 .item {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
@@ -159,6 +159,17 @@ i {
     justify-content: left;
     gap: 15px;
     margin-left: 30px;
+  }
+  @media (max-width: 1000px) {
+    .shopping-cart {
+      grid-template-columns: repeat(1, 400px);
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .shop {
+      grid-template-columns: repeat(1, 300px);
+    }
   }
   
   /**
