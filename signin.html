@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fu-book</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<body>
+
+    <section id="header">
+        <!-- <a href="index.html"><img width="20" src="img/logo.webp" class="logo"></a> -->
+        <div>
+            <a href="index.html"><h5>Fu::book</h5></a>
+        </div>
+        <div>
+            <ul id="logins_and_cart">
+                <li>
+                    <a href="cart.html">
+                        <div class="cart">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <div id="cartAmount" class="cartAmount"> 0 </div>
+                        </div>
+                    </a>
+                </li>
+                <li><a href="account.html"><i class="fa-solid fa-user"></i></a></li>
+                
+            </ul>
+        </div>
+    </section>
+
+    <!-- <section id="signin_options">
+        
+        <div class="sign-in-panel" id="sign-in-panel">
+            <form class="form-options" id="sign_in_form">
+                <label for="username"> Username</label>
+                <input type="text" id="username">
+                <label for="password"> Password</label>
+                <input type="password" id="password">
+                <input type="submit" value="submit">
+            </form>
+            
+        </div>
+        <div class="sign-up-panel" id="sign-up-panel">
+            <a href="signup.html"><p>No account? Sign up here...</p></a>
+        </div>
+    </section> -->
+
+    <h2>User Authentication</h2>
+    <div id="user-info">
+        <!-- This div will be populated with user information when logged in -->
+    </div>
+    <button onclick="login()">Login</button>
+    <button onclick="logout()">Logout</button>
+
+    <script>
+        // Initialize Netlify Identity
+        const netlifyIdentity = window.netlifyIdentity;
+        netlifyIdentity.init();
+
+        // Login function
+        function login() {
+            netlifyIdentity.open();
+        }
+
+        // Logout function
+        function logout() {
+            netlifyIdentity.logout();
+        }
+
+        // Event listener for user login
+        netlifyIdentity.on('login', (user) => {
+            document.getElementById('user-info').innerText = `Logged in as ${user.user_metadata.full_name}`;
+        });
+
+        // Event listener for user logout
+        netlifyIdentity.on('logout', () => {
+            document.getElementById('user-info').innerText = 'Logged out';
+        });
+    </script>
+    
+    <script src="signin.js"></script>
+</body>
+</html>
